@@ -29,16 +29,79 @@
       color: var(--text-color);
       transition: background 0.3s, color 0.3s;
     }
+    
+    body, html {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: var(--card-bg);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
+  background-color: var(--card-bg);
+  backdrop-filter: blur(10px);
+  padding: 20px 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Flex layout for logo + hamburger */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Hide hamburger by default (only show on mobile) */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+/* Normal nav layout for desktop */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .theme-toggle {
+    margin-top: 10px;
+  }
+
+  header {
+    padding: 20px;
+  }
+
+  .nav-container {
+    width: 100%;
+  }
+
+  nav a {
+    padding: 8px 0;
+  }
+}
 
     nav a {
       color: var(--text-color);
@@ -65,8 +128,10 @@
 
     .profile-container {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 50px;
+      text-align: center;
+      gap: 30px;
       transform-style: preserve-3d;
       perspective: 1000px;
       animation: float 6s ease-in-out infinite;
@@ -166,17 +231,23 @@
 </head>
 <body>
   <header>
+  <div class="nav-container">
     <h2>HI STUDENT'S</h2>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#schooling">Schooling</a>
-      <a href="#college">College</a>
-      <a href="#training">Training</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <button class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <nav id="navbar">
+    <a href="#home">Home</a>
+    <a href="#schooling">Schooling</a>
+    <a href="#college">College</a>
+    <a href="#training">Training</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
     <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
-  </header>
+  </nav>
+</header>
 
   <section class="home-section" id="home">
     <div class="profile-container">
@@ -291,6 +362,10 @@
     function toggleTheme() {
       document.body.classList.toggle('light-mode');
     }
+    
+    function toggleMenu() {
+      const nav = document.getElementById('navbar');
+      nav.classList.toggle('show');
+    }
   </script>
 </body>
-</html>
