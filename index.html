@@ -62,11 +62,31 @@
 /* Normal nav layout for desktop */
 nav {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+  justify-content:right;
   flex-wrap: wrap;
+  gap: 20px;
+  margin-top: -30px;
 }
+nav a {
+  color: var(--text-color);
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 0 var(--primary-color);
+  transition: all 0.3s ease;
+  transform: perspective(500px) translateZ(10px);
+}
+
+nav a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.2), 0 4px 0 var(--primary-color);
+  background: rgba(255,255,255,0.1);
+}
+
 
 /* Mobile Styles */
 @media (max-width: 768px) {
@@ -270,13 +290,15 @@ nav {
     <div class="info-grid">
       <div class="info-card">
         <div class="icon-circle"><i class="fas fa-school"></i></div>
-        <a href="https://kvgarhara.edu.in" target="_blank" style="color: inherit; text-decoration: none;">
+        <a href="https://garhara.kvs.ac.in/" target="_blank" style="color: inherit; text-decoration: none;">
          <div><strong>PRIMARY SCHOOL</strong>KENDRIYA VIDYALAYA GARHARA</div>
         </a>
       </div>
       <div class="info-card">
         <div class="icon-circle"><i class="fas fa-user-graduate"></i></div>
-        <div><strong>HIGH SCHOOL</strong>KENDRIYA VIDYALAYA GARHARA</div>
+        <a href="https://garhara.kvs.ac.in/" target="_blank" style="color: inherit; text-decoration: none;">
+         <div><strong>HIGH SCHOOL</strong>KENDRIYA VIDYALAYA GARHARA</div>
+        </a>
       </div>
       <div class="info-card">
         <div class="icon-circle"><i class="fas fa-award"></i></div>
@@ -290,7 +312,9 @@ nav {
     <div class="info-grid">
       <div class="info-card">
         <div class="icon-circle"><i class="fas fa-university"></i></div>
-        <div><strong>COLLEGE</strong>CENTRAL UNIVERSITY OF HARYANA</div>
+        <a href="https://www.cuh.ac.in/" target="_blank" style="color: inherit; text-decoration: none;">
+         <div><strong>COLLEGE</strong>CENTRAL UNIVERSITY OF HARYANA</div>
+       </a>
       </div>
       <div class="info-card">
         <div class="icon-circle"><i class="fas fa-laptop-code"></i></div>
